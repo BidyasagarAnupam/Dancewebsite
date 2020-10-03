@@ -16,7 +16,7 @@ const contactSchema = new mongoose.Schema({
     desc: String
   });
 
-  const Contact = mongoose.model('Contact', contactSchema);
+  const Contact = mongoose.model('Contact', contactSchema);//initialise schema
 
 
 // EXPRESS SPECIFIC STUFF
@@ -35,7 +35,7 @@ app.get('/', (req, res)=>{
 })
 app.get('/contact', (req, res)=>{
     const params = {}
-    res.status(200).render('contact.pug', params);
+    res.status(200).render('contact.pug', params);//appending request params
 })
 
 app.post('/contact', (req, res)=>{
@@ -43,7 +43,7 @@ app.post('/contact', (req, res)=>{
     myData.save().then(()=> {
         res.send("This item has been send to the database")
     }).catch(()=> {
-        res.status(400).send("Item was not saved to the db")
+        res.status(400).send("Item was not saved to the db")//changing request status
     });
 
     // res.status(200).render('contact.pug');
